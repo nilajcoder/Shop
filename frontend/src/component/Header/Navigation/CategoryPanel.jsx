@@ -11,6 +11,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { IoClose } from "react-icons/io5";
+import { FaRegPlusSquare } from "react-icons/fa";
 
 const CategoryPanel = (props) => {
 
@@ -21,35 +22,23 @@ const CategoryPanel = (props) => {
   };
 
    const DrawerList = (
-    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+    <Box sx={{ width: 250 }} role="presentation" >
 
         <h3 className='p 3 text-[16px] font-[500] flex items-center justify-between'>
-          Shop By Category <IoClose  onClick={toggleDrawer(false)} className='cursor-pointer text-[20px]'/> </h3>
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+          Shop By Category <IoClose  onClick={toggleDrawer(false)} className='cursor-pointer text-[20px]'/> 
+          </h3>
+     
+       <div className='scroll'>
+
+        <ul className='w-full'>
+          <li className='list-none flex items-center relative'>
+
+            <Button className='w-full !text-left !justify-start !px-3 !text-black'>Fashion</Button>
+            <FaRegPlusSquare className='absolute top-[10px] right-[15px]' />
+          </li>
+        </ul>
+       </div>
+
     </Box>
   );
 
