@@ -4,9 +4,17 @@ import { RiMenuLine } from "react-icons/ri";
 import { LiaAngleDownSolid } from "react-icons/lia";
 import { Link } from 'react-router-dom';
 import { IoRocketSharp } from "react-icons/io5";
+import { Category } from '@mui/icons-material';
+import CategoryPanel from './CategoryPanel';
+
 
 const Navbar = () => {
 
+const [isOpenCatPanel, setIsOpenCatPanel] = useState(false);
+
+const openCategoryPanel = () => {
+  setIsOpenCatPanel(true);
+};
 
 
  
@@ -18,7 +26,7 @@ const Navbar = () => {
     <div className='container flex items-center justify-end gap-5'>
 
         <div className='col1 w-[20%]'>
-        <Button className='!text-black gap-2 w-full ' >
+        <Button className='!text-black gap-2 w-full ' onClick={openCategoryPanel} >
             <RiMenuLine className='text-[18px]'/>
         Shop By Category
            <LiaAngleDownSolid className='text-[13px] ml-auto font-bold '/>
@@ -126,8 +134,8 @@ const Navbar = () => {
 
     </div>
       </nav>
-    
-
+    {/*categorypalel*/}
+    <CategoryPanel  isOpenCatPanel={isOpenCatPanel} setIsOpenCatPanel={setIsOpenCatPanel}  />
       
     </>
  
