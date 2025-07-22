@@ -14,19 +14,37 @@ import { IoClose } from "react-icons/io5";
 import { FaRegPlusSquare } from "react-icons/fa";
 import '../Navigation/Navbar.css'
 import { Link } from 'react-router-dom';
+import { BiCheckboxMinus } from "react-icons/bi";
 
 const CategoryPanel = (props) => {
 
   const [submenuIndex,setSubmenuIndex]=useState(null)
+
+  
+  const [innersubmenuIndex,setInnerSubmenuIndex]=useState(null)
 
   const toggleDrawer = (newOpen) => () => {
     props.setIsOpenCatPanel(newOpen)
   };
 
   const openSubmenu=(index)=>{
-     setSubmenuIndex(index)
+    if(submenuIndex===index){
+      setSubmenuIndex(null)
+    } else{
+       setSubmenuIndex(index)
+    }
+     
   }
 
+
+    const openInnerSubmenu=(index)=>{
+    if(innersubmenuIndex===index){
+      setInnerSubmenuIndex(null)
+    } else{
+       setInnerSubmenuIndex(index)
+    }
+     
+  }
 
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" className="categoryPanel" >
@@ -44,8 +62,21 @@ const CategoryPanel = (props) => {
               Fashion
               </Button>
               </Link>
-            <FaRegPlusSquare className='absolute top-[10px] right-[15px] cursor-pointer '
+
+              {
+                  submenuIndex===0  ?
+
+                    < BiCheckboxMinus className='absolute top-[10px] right-[15px] cursor-pointer '
               onClick={()=>openSubmenu(0)}/>
+              :
+
+              <FaRegPlusSquare className='absolute top-[10px] right-[15px] cursor-pointer '
+              onClick={()=>openSubmenu(0)}/>
+
+              }
+            
+
+             
 
 
               {
@@ -57,9 +88,25 @@ const CategoryPanel = (props) => {
                   Appreal
                   </Button>
                   </Link>
-                <FaRegPlusSquare className='absolute top-[10px] right-[15px] cursor-pointer ' />
 
 
+                   {
+                  innersubmenuIndex===0  ?
+
+                    < BiCheckboxMinus className='absolute top-[10px] right-[15px] cursor-pointer '
+              onClick={()=>openInnerSubmenu(0)}/>
+              :
+
+              <FaRegPlusSquare className='absolute top-[10px] right-[15px] cursor-pointer '
+              onClick={()=>openInnerSubmenu(0)}/>
+
+              }
+              
+
+
+                {
+                  innersubmenuIndex===0 &&  
+                  
                   <ul className='inner_submenu absolute top-[100%] left-[0%] w-full pl-3  '>
               <li className='list-none relative mb-1'>
 
@@ -103,6 +150,9 @@ const CategoryPanel = (props) => {
 
               
             </ul>
+                }
+  
+
 
    
 
