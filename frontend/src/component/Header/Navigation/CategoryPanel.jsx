@@ -17,11 +17,16 @@ import { Link } from 'react-router-dom';
 
 const CategoryPanel = (props) => {
 
-
+  const [submenuIndex,setSubmenuIndex]=useState(null)
 
   const toggleDrawer = (newOpen) => () => {
     props.setIsOpenCatPanel(newOpen)
   };
+
+  const openSubmenu=(index)=>{
+     setSubmenuIndex(index)
+  }
+
 
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" className="categoryPanel" >
@@ -39,10 +44,13 @@ const CategoryPanel = (props) => {
               Fashion
               </Button>
               </Link>
-            <FaRegPlusSquare className='absolute top-[10px] right-[15px] cursor-pointer '  />
+            <FaRegPlusSquare className='absolute top-[10px] right-[15px] cursor-pointer '
+              onClick={()=>openSubmenu(0)}/>
 
 
-            <ul className='submenu absolute top-[100%] left-[0%] w-full pl-3  '>
+              {
+                submenuIndex===0 &&
+                 <ul className='submenu absolute top-[100%] left-[0%] w-full pl-3  '>
               <li className='list-none relative'>
                   <Link to='/' className='w-full'>
                 <Button className='w-full !text-left !justify-start !px-3 !text-black'>
@@ -52,8 +60,8 @@ const CategoryPanel = (props) => {
                 <FaRegPlusSquare className='absolute top-[10px] right-[15px] cursor-pointer ' />
 
 
-                  <ul className='submenu absolute top-[100%] left-[0%] w-full pl-3  '>
-              <li className='list-none relative'>
+                  <ul className='inner_submenu absolute top-[100%] left-[0%] w-full pl-3  '>
+              <li className='list-none relative mb-1'>
 
                 <Link to='/' className=' link w-full !text-left !justify-start !px-3 transition text-[14px]'>
                   Smart Tablet
@@ -63,7 +71,7 @@ const CategoryPanel = (props) => {
               </li>
 
 
-                 <li className='list-none relative'>
+                 <li className='list-none relative mb-1'>
 
                 <Link to='/' className=' link w-full !text-left !justify-start !px-3 transition text-[14px]'>
                   Crep-T-Shirt
@@ -72,7 +80,7 @@ const CategoryPanel = (props) => {
 
               </li>
 
-                 <li className='list-none relative'>
+                 <li className='list-none relative mb-1'>
 
                 <Link to='/' className=' link w-full !text-left !justify-start !px-3 transition text-[14px]'>
                   Leather Watch
@@ -82,7 +90,7 @@ const CategoryPanel = (props) => {
               </li>
 
 
-                 <li className='list-none relative'>
+                 <li className='list-none relative mb-1'>
 
                 <Link to='/' className=' link w-full !text-left !justify-start !px-3 transition text-[14px]'>
                   Rolling Diamond
@@ -100,6 +108,10 @@ const CategoryPanel = (props) => {
 
               </li>
             </ul>
+              }
+
+
+           
 
 
           </li>
