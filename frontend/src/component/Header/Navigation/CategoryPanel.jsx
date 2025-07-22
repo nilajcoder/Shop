@@ -56,11 +56,44 @@ const CategoryPanel = (props) => {
               <li className='list-none relative'>
 
                 <Link to='/' className=' link w-full !text-left !justify-start !px-3 transition text-[14px]'>
-                  Appreal
+                  Smart Tablet
                   </Link>
-               
+      
 
               </li>
+
+
+                 <li className='list-none relative'>
+
+                <Link to='/' className=' link w-full !text-left !justify-start !px-3 transition text-[14px]'>
+                  Crep-T-Shirt
+                  </Link>
+      
+
+              </li>
+
+                 <li className='list-none relative'>
+
+                <Link to='/' className=' link w-full !text-left !justify-start !px-3 transition text-[14px]'>
+                  Leather Watch
+                  </Link>
+      
+
+              </li>
+
+
+                 <li className='list-none relative'>
+
+                <Link to='/' className=' link w-full !text-left !justify-start !px-3 transition text-[14px]'>
+                  Rolling Diamond
+                  </Link>
+      
+
+              </li>
+
+              
+
+              
             </ul>
 
    
