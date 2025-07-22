@@ -56,7 +56,7 @@ const CategoryPanel = (props) => {
       <div className='scroll'>
 
         <ul className='w-full'>
-          <li className='list-none flex items-center relative'>
+          <li className='list-none flex items-center relative flex-col'>
                  <Link to='/'className='w-full'>
             <Button className='w-full !text-left !justify-start !px-3 !text-black'>
               Fashion
@@ -81,7 +81,7 @@ const CategoryPanel = (props) => {
 
               {
                 submenuIndex===0 &&
-                 <ul className='submenu absolute top-[100%] left-[0%] w-full pl-3  '>
+                 <ul className='submenu  w-full pl-3  '>
               <li className='list-none relative'>
                   <Link to='/' className='w-full'>
                 <Button className='w-full !text-left !justify-start !px-3 !text-black'>
@@ -107,7 +107,118 @@ const CategoryPanel = (props) => {
                 {
                   innersubmenuIndex===0 &&  
                   
-                  <ul className='inner_submenu absolute top-[100%] left-[0%] w-full pl-3  '>
+                  <ul className='inner_submenu  w-full pl-3  '>
+              <li className='list-none relative mb-1'>
+
+                <Link to='/' className=' link w-full !text-left !justify-start !px-3 transition text-[14px]'>
+                  Smart Tablet
+                  </Link>
+      
+
+              </li>
+
+
+                 <li className='list-none relative mb-1'>
+
+                <Link to='/' className=' link w-full !text-left !justify-start !px-3 transition text-[14px]'>
+                  Crep-T-Shirt
+                  </Link>
+      
+
+              </li>
+
+                 <li className='list-none relative mb-1'>
+
+                <Link to='/' className=' link w-full !text-left !justify-start !px-3 transition text-[14px]'>
+                  Leather Watch
+                  </Link>
+      
+
+              </li>
+
+
+                 <li className='list-none relative mb-1'>
+
+                <Link to='/' className=' link w-full !text-left !justify-start !px-3 transition text-[14px]'>
+                  Rolling Diamond
+                  </Link>
+      
+
+              </li>
+
+              
+
+              
+            </ul>
+                }
+  
+
+
+   
+
+              </li>
+            </ul>
+              }
+
+
+           
+
+
+          </li>
+
+
+           <li className='list-none flex items-center relative flex-col'>
+                 <Link to='/'className='w-full'>
+            <Button className='w-full !text-left !justify-start !px-3 !text-black'>
+              Outware
+              </Button>
+              </Link>
+
+              {
+                  submenuIndex===1  ?
+
+                    < BiCheckboxMinus className='absolute top-[10px] right-[15px] cursor-pointer '
+              onClick={()=>openSubmenu(1)}/>
+              :
+
+              <FaRegPlusSquare className='absolute top-[10px] right-[15px] cursor-pointer '
+              onClick={()=>openSubmenu(1)}/>
+
+              }
+            
+
+             
+
+
+              {
+                submenuIndex===1 &&
+                 <ul className='submenu  w-full pl-3  '>
+              <li className='list-none relative'>
+                  <Link to='/' className='w-full'>
+                <Button className='w-full !text-left !justify-start !px-3 !text-black'>
+                  Appreal
+                  </Button>
+                  </Link>
+
+
+                   {
+                  innersubmenuIndex===1 ?
+
+                    < BiCheckboxMinus className='absolute top-[10px] right-[15px] cursor-pointer '
+              onClick={()=>openInnerSubmenu(1)}/>
+              :
+
+              <FaRegPlusSquare className='absolute top-[10px] right-[15px] cursor-pointer '
+              onClick={()=>openInnerSubmenu(1)}/>
+
+              }
+              
+
+
+                {
+                  innersubmenuIndex===1 &&  
+                  
+                  <ul className='inner_submenu w-full pl-3  '>
               <li className='list-none relative mb-1'>
 
                 <Link to='/' className=' link w-full !text-left !justify-start !px-3 transition text-[14px]'>
